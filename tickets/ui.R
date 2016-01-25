@@ -8,14 +8,15 @@ shinyUI(fluidPage(
   
   # Application title
   titlePanel("Ticket trends"),
-  
-  # Sidebar with a slider input for the number of bins
-  sidebarLayout(
-    sidebarPanel(
-      helpText("Select the years you want to view"),
-        selectInput("year", "Year", choices = levels(data$year))
-    ),
+
+  #Sidebar with checkboxes
+    sidebarLayout(
+      sidebarPanel(
+        helpText("Select the years you want to view"),
+        checkboxGroupInput("year", "Year:", choices = levels(data$year))
+      ),
     
+        
     # Show a plot of the generated distribution
     mainPanel(plotOutput("trendChart"))
     )

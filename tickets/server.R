@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
     output$trendChart <- renderPlot({
       dataInput <- subset(data, year == input$year)
       ggplot(data = dataInput, aes(y = count, x = week, color = year)) + geom_line(aes(group = year)) + 
-        geom_point()
+        geom_point() + scale_x_discrete(breaks = c(1:52))
     })
     
 })
